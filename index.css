@@ -1,0 +1,356 @@
+:root {
+    --background: #1A1A2E;
+    --color1: #4ECDC4;
+    --shadow1: #4ECDC444;
+    --color2: #FF6B6B;
+    --shadow2: #FF6B6B44;
+    --black: rgba(0, 0, 0, 0.400);
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--background);
+    font-family: 'Courier New', monospace;
+}
+
+.cont{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bubbles{
+    position: fixed;
+    display: flex;
+}
+
+.bubbles span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: var(--color1);
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px var(--shadow1),
+    0 0 50px var(--color1),
+    0 0 100px var(--color1);
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+.bubbles span:nth-child(even){
+    background: var(--color2);
+    box-shadow: 0 0 0 10px var(--shadow2),
+    0 0 50px var(--color2),
+    0 0 100px var(--color1);
+}
+
+@keyframes animate{
+    0%{
+        transform: translateY(100vh) scale(0);
+    }
+    100%{
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+#header {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: white;
+    padding-top: 200px;
+}
+
+#words{
+    font-weight: bold;
+    background-color: var(--black);
+    padding: 50px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%;
+    background-color: #333; /* Background color of the button */
+    color: #fff; /* Color of the icon */
+    text-decoration: none;
+    font-size: 24px; /* Adjust icon size */
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-icon:hover {
+    background-color: #444; /* Background color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.btn{
+    color: var(--color2);
+    border-color: var(--color1);
+}
+
+.btn:hover{
+    color: black;
+    background-color: white;
+    border-color: var(--color1);
+}
+
+.btn-icon:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Optional focus outline */
+}
+
+#links a:hover{
+    color: var(--color2);
+}
+
+a{
+    color: var(--color1);
+    text-decoration: none;
+}
+
+#projects img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background-color: var(--black);
+    padding:20px;
+}
+
+img{
+    border-radius: 15px;
+}
+
+#projects h1{
+    background-color: var(--black);
+    padding:10px;
+    text-align: center;
+    color: white;
+}
+
+#projects, #about, #education, #header, #timeline, #skills{
+    scroll-margin-top: 100px;
+}
+
+#skills #special{
+    margin-top: -400px;
+}
+
+#projects h3{
+  font-weight: bold;
+  font-size: 40px;
+  background-color: white;
+  border-radius: 25px;
+  
+}
+
+#projects img{
+  max-height: 500px;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+.col-4:hover .centered {
+    opacity: 1;
+}
+
+.col-4:hover img{
+    opacity: 0.2;
+}
+
+.info{
+    color: #4ECDC4
+}
+
+#about h1{
+    background-color:var(--black);
+    padding:10px;
+    text-align: center;
+    color: white;
+}
+
+.img-fluid {
+    max-height: 500px; /* Keeps image within the max height */
+    width: auto; /* Ensures the aspect ratio is maintained */
+  }
+
+  #about .row {
+    display: flex;
+    align-items: stretch; /* Makes columns stretch to the height of the tallest one */
+  }
+  
+  #about .col-4,
+  #about .col-8 {
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally if needed */
+  }
+  
+  #about .col-4 {
+    color: white;
+    background-color: var(--black);
+  }
+  
+  #about .col-4 h3 {
+    max-height: 500px; /* Ensure it does not exceed the image height */
+    overflow: auto; /* Allows scrolling if content overflows */
+  }
+
+#education h1{
+    background-color:var(--black);
+    padding:10px;
+    text-align: center;
+    color: white;
+}
+
+#education .row {
+    display: flex;
+    align-items: stretch; /* Ensures columns in the row have equal height */
+  }
+  
+  #education .col-7,
+  #education .col-5 {
+    display: flex;
+    align-items: center; /* Center content vertically */
+  }
+  
+  #education .col-7 {
+    background-color: var(--black);
+    color: white;
+  }
+  
+  #education .col-7 h3 {
+    max-height: 500px; /* Ensure it matches the image height */
+    overflow: auto; /* Allows scrolling if content overflows */
+  }
+
+#timeline h1{
+    background-color:var(--black);
+    padding:10px;
+    text-align: center;
+    color: white;
+}
+
+#skills h1{
+    background-color:var(--black);
+    text-align: center;
+    color: white;
+}
+
+#download .col-6{
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    box-shadow: 5px 10px rgba(0, 0, 0, 0.618);
+    background-color:var(--black);
+    border-radius: 25px;
+}
+
+hr{
+    color: white;
+}
+
+.list-group{
+    text-align: center;
+}
+
+#last{
+    text-align: right;
+}
+
+#toTheTop{
+    text-align: center;
+}
+
+#toTheTop a{
+    color: white;
+    text-decoration: none;
+}
+
+.list-group li{
+    background-color: rgba(255, 255, 255, 0.231);
+}
+
+.list-group li{
+    color: black;
+    font-weight: bold;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+.timeline {
+  padding: 50px;
+  min-height: 100vh;
+  color: white;
+}
+section {
+  margin: 20px 0;
+}
+
+*,
+*::after,
+*::before {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#progress-bar {
+  --progress: 0;
+  height: 6px;
+  width: var(--progress);
+  background-color: var(--color2);
+  margin-top:67px;
+}
+
+.navbar a{
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-custom {
+  height: 75px;
+  background-color: rgba(0, 0, 0, 0.826);
+  font-size: 30px;
+}
+
+#download a{
+    font-size: 20px;
+    text-decoration: none;
+}
